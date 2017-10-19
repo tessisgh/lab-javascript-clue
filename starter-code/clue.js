@@ -115,18 +115,32 @@ var cardRooms = ["dinningRoom", "conservatorty", "kitchen", "study", "library", 
 
 ////Iteration 2.1 y 2.2
 
+var mistery = [];
 
 function random_selector(x) {
   var randomCard = x[Math.floor(Math.random() * x.length)];
-  console.log(randomCard);
+  mistery.push(randomCard);
 }
 
+//A b y c son los arrays de cartas
+function chooseMistery (a,b,c){
+  random_selector(a);
+  random_selector(b);
+  random_selector(c);
+}
 
-var randomSuspect = random_selector (cardSuspects);
+//var randomSuspect = random_selector (cardSuspects);
+//var randomWeapon = random_selector (cardWeapons);
+//var randomRoom = random_selector (cardRooms);
 
-var randomWeapon = random_selector (cardWeapons);
+//X es el array que le paso
+function revealMistery(x){
+  console.log("El asesinato se cometio en "+ x[0] + " con un arma: " + x[1] + " y fue " + x[2]);
+}
 
-var randomRoom = random_selector (cardRooms);
+chooseMistery(cardRooms,cardWeapons,cardSuspects);
+console.log(mistery);
+revealMistery(mistery);
 
 
 //Function is optimized. Not able to pack the mistery in one function, yet.
